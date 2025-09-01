@@ -1,0 +1,33 @@
+services:
+  my-sba-9:
+    image: openjdk:21
+    container_name: mysbaimage9
+    platform: linux/amd64
+    ports:
+      - 8089:8080
+      - 8009:8000
+    expose:
+      - "8009"
+    depends_on:
+      - my-db-9
+
+    networks:
+      - shared-net
+    volumes:
+      #- "C:/Users/39324/Desktop/userserviceproject1/build/libs:/app"
+      - ./build/libs/NotificationServiceProject-0.0.1-SNAPSHOT.jar:/app/app.jar
+    working_dir: /app
+    entrypoint: java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000 -jar /app/app.jar
+
+
+  my-db-9:
+    image: mongo:5.0
+    container_name: mongodbimage9
+    ports:
+      - 27024:27017
+    networks:
+      - shared-net
+
+networks:
+  shared-net:
+    external: true
