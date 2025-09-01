@@ -94,4 +94,4 @@ Il **NotificationService** gestisce l'invio di notifiche push ai camionisti e ag
 ### Tecnologie utilizzate:
 - **Spring Boot** per la gestione delle API e dei servizi.
 - **Firebase Cloud Messaging (FCM)** per l'invio di notifiche push.
-- **Database**: MongoDB o PostgreSQL per memorizzare le notifiche inviate e lo stato delle stesse.
+- **Database**: MongoDB per memorizzare le notifiche inviate e lo stato delle stesse.
